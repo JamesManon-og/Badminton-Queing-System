@@ -93,6 +93,47 @@ class PlayerService extends ChangeNotifier {
     return updatedPlayer;
   }
 
+  void addDummyPlayers() {
+  createPlayer(
+    nickname: "Player 1",
+    fullName: "Player One The Great",
+    contactNumber: "1234567890",
+    email: "player1@example.com",
+    address: "123 Main St, City",
+    remarks: "Right-handed player",
+    minLevel: BadmintonLevel.intermediate,
+    minStrength: SkillStrength.strong,
+    maxLevel: BadmintonLevel.levelE,
+    maxStrength: SkillStrength.mid,
+  );
+
+  createPlayer(
+    nickname: "Player 2",
+    fullName: "Player Two The Great",
+    contactNumber: "0987654321",
+    email: "player2@example.com",
+    address: "456 Oak Ave, Town",
+    remarks: "Left-handed player",
+    minLevel: BadmintonLevel.levelG,
+    minStrength: SkillStrength.mid,
+    maxLevel: BadmintonLevel.levelF,
+    maxStrength: SkillStrength.strong,
+  );
+
+  createPlayer(
+    nickname: "Player 3",
+    fullName: "Player Three The Great",
+    contactNumber: "5555555555",
+    email: "player3@example.com",
+    address: "789 Pine St, Village",
+    remarks: "Doubles specialist",
+    minLevel: BadmintonLevel.beginner,
+    minStrength: SkillStrength.weak,
+    maxLevel: BadmintonLevel.intermediate,
+    maxStrength: SkillStrength.mid,
+  );
+}
+
   /// Delete a player by ID
   /// Returns true if deleted, false if not found
   bool deletePlayer(String playerId) {
@@ -179,4 +220,7 @@ class PlayerService extends ChangeNotifier {
     _players.clear();
     notifyListeners();
   }
+
+  /// dummy data
+  /// 
 }

@@ -229,6 +229,13 @@ class _PlayerCard extends StatelessWidget {
     required this.onDelete,
   });
 
+ Color getAvatarColor(String id) {
+  // Generate a predictable but "random" hue from the player's ID
+  final hue = (id.hashCode % 360).toDouble();
+  // Use darker and more muted colors by reducing lightness and saturation
+  return HSLColor.fromAHSL(1.0, hue, 0.3, 0.3).toColor();
+}
+
   @override
   Widget build(BuildContext context) {
     return Dismissible(
@@ -268,7 +275,7 @@ class _PlayerCard extends StatelessWidget {
                   width: 40,
                   height: 40,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.secondary,
+                    color: getAvatarColor(player.id),
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
                       color: Theme.of(context).dividerColor,
@@ -281,7 +288,7 @@ class _PlayerCard extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
-                        color: Theme.of(context).colorScheme.onSurface,
+                          color: Colors.white,
                       ),
                     ),
                   ),
