@@ -1,29 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-/// Modern theme system inspired by shadcn/ui with light and dark modes
+/// Modern theme system with dark blue color scheme
 class AppTheme {
-  // Dark mode colors - clean and modern
-  static const Color darkBackground = Color(0xFF0A0A0A);
+  // Dark mode colors - dark blue theme
+  static const Color darkBackground = Color(0xFF0A1628); // Dark navy blue
   static const Color darkForeground = Color(0xFFFAFAFA);
-  static const Color darkCard = Color(0xFF141414);
-  static const Color darkPrimary = Color(0xFFFAFAFA);
-  static const Color darkPrimaryForeground = Color(0xFF0A0A0A);
-  static const Color darkSecondary = Color(0xFF1F1F1F);
-  static const Color darkMuted = Color(0xFF737373);
-  static const Color darkBorder = Color(0xFF262626);
-  static const Color darkAccent = Color(0xFF3B82F6); // Blue highlight for dark mode
+  static const Color darkCard = Color(0xFF1E293B); // Slate blue
+  static const Color darkPrimary = Color(0xFF3B82F6); // Bright blue
+  static const Color darkPrimaryForeground = Color(0xFFFFFFFF);
+  static const Color darkSecondary = Color(0xFF1E3A5F); // Medium blue
+  static const Color darkMuted = Color(0xFF94A3B8); // Light slate
+  static const Color darkBorder = Color(0xFF334155); // Border blue
+  static const Color darkAccent = Color(0xFF60A5FA); // Light blue highlight
   
-  // Light mode colors - warm and inviting
-  static const Color lightBackground = Color(0xFFFBFBF9);
-  static const Color lightForeground = Color(0xFF1C1917);
+  // Light mode colors - blue tinted
+  static const Color lightBackground = Color(0xFFF8FAFC); // Very light blue
+  static const Color lightForeground = Color(0xFF0F172A); // Dark blue-black
   static const Color lightCard = Color(0xFFFFFFFF);
-  static const Color lightPrimary = Color(0xFF1C1917);
-  static const Color lightPrimaryForeground = Color(0xFFFBFBF9);
-  static const Color lightSecondary = Color(0xFFF5F5F4);
-  static const Color lightMuted = Color(0xFF78716C);
-  static const Color lightBorder = Color(0xFFE7E5E4);
-  static const Color lightAccent = Color(0xFFF97316); // Warm orange accent
+  static const Color lightPrimary = Color(0xFF1E40AF); // Deep blue
+  static const Color lightPrimaryForeground = Color(0xFFFFFFFF);
+  static const Color lightSecondary = Color(0xFFE0F2FE); // Light blue
+  static const Color lightMuted = Color(0xFF64748B); // Slate
+  static const Color lightBorder = Color(0xFFCBD5E1); // Light slate
+  static const Color lightAccent = Color(0xFF3B82F6); // Blue accent
   
   // Shared colors
   static const Color destructive = Color(0xFFEF4444);
@@ -662,13 +663,9 @@ class AppTheme {
     );
   }
 
-  // Get system font based on platform
+  // Get Roboto Mono font for tech look
   static String? _getFontFamily() {
-    // This will use system default fonts:
-    // - San Francisco (SF Pro) on iOS/macOS
-    // - Roboto on Android
-    // - Segoe UI on Windows
-    return null; // null uses system default
+    return GoogleFonts.robotoMono().fontFamily;
   }
 }
 

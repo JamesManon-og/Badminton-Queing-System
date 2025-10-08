@@ -191,19 +191,19 @@ class EditPlayerScreen extends StatelessWidget {
                 ),
               ),
             ),
-            child: SizedBox(
-              width: double.infinity,
-              child: OutlinedButton.icon(
-                onPressed: () => _confirmDelete(context),
-                icon: const Icon(Icons.delete_outline, size: 16),
-                label: const Text('Delete Player'),
-                style: OutlinedButton.styleFrom(
-                  foregroundColor: Theme.of(context).colorScheme.error,
-                  side: BorderSide(color: Theme.of(context).colorScheme.error),
-                  padding: const EdgeInsets.symmetric(vertical: 14),
-                ),
-              ),
-            ),
+            // child: SizedBox(
+            //   width: double.infinity,
+            //   child: OutlinedButton.icon(
+            //     onPressed: () => _confirmDelete(context),
+            //     icon: const Icon(Icons.delete_outline, size: 16),
+            //     label: const Text('Delete Player'),
+            //     style: OutlinedButton.styleFrom(
+            //       foregroundColor: Theme.of(context).colorScheme.error,
+            //       side: BorderSide(color: Theme.of(context).colorScheme.error),
+            //       padding: const EdgeInsets.symmetric(vertical: 14),
+            //     ),
+            //   ),
+            // ),
           ),
         ],
       ),

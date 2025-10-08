@@ -83,21 +83,27 @@ class _PlayersListScreenState extends State<PlayersListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Players'),
+          title: const Text(
+          'Manage Players',
+          style: TextStyle(
+            fontSize: 30,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
         actions: [
           // Theme toggle button
-          IconButton(
-            icon: Icon(
-              Theme.of(context).brightness == Brightness.dark
-                  ? Icons.light_mode
-                  : Icons.dark_mode,
-              size: 20,
-            ),
-            tooltip: 'Toggle theme',
-            onPressed: () {
-              Provider.of<ThemeService>(context, listen: false).toggleTheme();
-            },
-          ),
+          // IconButton(
+          //   icon: Icon(
+          //     Theme.of(context).brightness == Brightness.dark
+          //         ? Icons.light_mode
+          //         : Icons.dark_mode,
+          //     size: 20,
+          //   ),
+          //   tooltip: 'Toggle theme',
+          //   onPressed: () {
+          //     Provider.of<ThemeService>(context, listen: false).toggleTheme();
+          //   },
+          // ),
         ],
       ),
       body: Column(
@@ -149,7 +155,7 @@ class _PlayersListScreenState extends State<PlayersListScreen> {
                             color: Theme.of(context).colorScheme.surface,
                             borderRadius: BorderRadius.circular(16),
                             border: Border.all(
-                              color: Theme.of(context).dividerColor,
+                              color: Color.fromARGB(255, 2, 20, 77),
                               width: 1,
                             ),
                           ),
@@ -182,7 +188,7 @@ class _PlayersListScreenState extends State<PlayersListScreen> {
 
                 return ListView.builder(
                   itemCount: players.length,
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
                   itemBuilder: (context, index) {
                     final player = players[index];
                     return _PlayerCard(
@@ -210,8 +216,8 @@ class _PlayersListScreenState extends State<PlayersListScreen> {
             MaterialPageRoute(builder: (context) => const AddPlayerScreen()),
           );
         },
-        icon: const Icon(Icons.add, size: 20),
-        label: const Text('Add Player'),
+       icon: const Icon(Icons.person_add),
+       label: const Text('New Player'),
       ),
     );
   }
@@ -229,12 +235,12 @@ class _PlayerCard extends StatelessWidget {
     required this.onDelete,
   });
 
- Color getAvatarColor(String id) {
-  // Generate a predictable but "random" hue from the player's ID
-  final hue = (id.hashCode % 360).toDouble();
-  // Use darker and more muted colors by reducing lightness and saturation
-  return HSLColor.fromAHSL(1.0, hue, 0.3, 0.3).toColor();
-}
+  Color getAvatarColor(String id) {
+    // Generate a predictable but "random" hue from the player's ID
+    final hue = (id.hashCode % 360).toDouble();
+    // Use darker and more muted colors by reducing lightness and saturation
+    return HSLColor.fromAHSL(1.0, hue, 0.3, 0.3).toColor();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -250,7 +256,7 @@ class _PlayerCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.error,
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: Theme.of(context).dividerColor, width: 1),
+           border: Border.all(color: Color.fromARGB(255, 2, 20, 77), width: 1),
         ),
         alignment: Alignment.centerRight,
         padding: const EdgeInsets.only(right: 24),
@@ -261,7 +267,7 @@ class _PlayerCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surface,
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: Theme.of(context).dividerColor, width: 1),
+          border: Border.all(color: Color.fromARGB(255, 2, 20, 77), width: 1),
         ),
         child: InkWell(
           onTap: onTap,
@@ -278,7 +284,7 @@ class _PlayerCard extends StatelessWidget {
                     color: getAvatarColor(player.id),
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-                      color: Theme.of(context).dividerColor,
+                      color: Color.fromARGB(255, 2, 20, 77),
                       width: 1,
                     ),
                   ),
@@ -288,7 +294,7 @@ class _PlayerCard extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
-                          color: Colors.white,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -322,10 +328,7 @@ class _PlayerCard extends StatelessWidget {
                         decoration: BoxDecoration(
                           color: Theme.of(context).colorScheme.secondary,
                           borderRadius: BorderRadius.circular(6),
-                          border: Border.all(
-                            color: Theme.of(context).dividerColor,
-                            width: 1,
-                          ),
+                           border: Border.all(color: Color.fromARGB(255, 2, 20, 77), width: 1),
                         ),
                         child: Text(
                           player.skillLevelRange,
